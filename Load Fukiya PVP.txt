@@ -1,0 +1,20 @@
+// Autore: Yoshi
+// Descrizione: carica i fukiya con i dardi avvelenati
+if not @findobject 'fukiya'
+  for 3
+    sysmsg 'Seleziona il Fukiya!' 25
+  endfor
+  promptalias 'fukiya'
+endif
+while not @injournal 'Non hai più dardi avvelenati' 'system'
+  if @findtype 0x2806 'any' 'backpack' 1
+    waitforcontext 'fukiya' 0 5000
+    waitfortarget 1000
+    target! 'found'
+  else
+    sysmsg 'Il fukiya è pieno!' 25
+    break
+  endif
+endwhile
+@clearjournal
+sysmsg 'Ricarica avvenuta.' 69

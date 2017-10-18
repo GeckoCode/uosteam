@@ -1,0 +1,18 @@
+//Utilizzare Loop
+if @inrange 'enemy' 10
+  if targetexists 'harmful'
+    target! 'enemy'
+  elseif @inrange 'enemy' 1
+    cast 'Harm' 'enemy'
+  else
+    if not @findalias 'Sequencing'
+      cast 'Magic Arrow' 'enemy'
+      @setalias 'Sequencing' 'self'
+    else
+      cast 'Fireball' 'enemy'
+      @unsetalias 'Sequencing'
+    endif
+    while waitingfortarget 'harmful'
+    endwhile
+  endif
+endif

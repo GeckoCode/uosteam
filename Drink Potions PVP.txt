@@ -1,0 +1,14 @@
+if stam < 50
+  usetype! 0xf0b
+endif
+if poisoned 'self'
+  usetype! 0xf07
+endif
+if not yellowhits 'self'
+  if diffhits >= 130
+    usetype! 0xf0c
+  endif
+else
+  // Mele Incantate
+  usetype! 0x2fd8
+endif

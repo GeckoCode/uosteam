@@ -1,0 +1,13 @@
+// UO Evolution
+// Powered by Yoshi
+// -----------------
+// Inserisci il seriale del Personal Teleporter
+warmode 'on'
+pause 100
+warmode 'off'
+pause 100
+useobject 0x41b7c826
+waitforgump 0x19cda4c1 15000
+replygump 0x19cda4c1 119
+waitforgump 0x19cda4c1 15000
+replygump 0x19cda4c1 1 200
