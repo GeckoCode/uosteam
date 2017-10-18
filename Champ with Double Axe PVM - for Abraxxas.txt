@@ -1,0 +1,68 @@
+clearignorelist
+while @findtype 0xeed 'any' 'ground'
+  useobject! 'found'
+  ignoreobject 'found'
+endwhile
+@setability 'secondary'
+getenemy 'closest' 'nearest' 'murderer' 'enemy' 'criminal' 'gray'
+pause 100
+attack 'enemy'
+pause 1249
+@findtype 0x4170bde3
+if not listexists 'Jewelry'
+  @createlist 'Jewelry'
+endif
+if list 'Jewelry' == 0
+  @pushlist 'Jewelry' 0x108a
+  @pushlist 'Jewelry' 0x1f09
+  @pushlist 'Jewelry' 0x1086
+  @pushlist 'Jewelry' 0x1f06
+endif
+if not @findtype '0x2006' 'any' 'ground' '1' '1'
+endif
+@setalias '0' 'found'
+@useobject '0'
+for 0 to Jewelry
+  for 2
+    if @findtype Jewelry[] 0 '0'
+      @setalias 'Skills' 'found'
+      waitforproperties 'Skills' 3000
+      if @property 'Swordsmanship' 'Skills' >= 10
+        sysmsg 'Swords!' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+      if @property 'Parry' 'Skills' >= 10
+        sysmsg 'Parry!' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+      if @property 'Tactics' 'Skills' >= 10
+        sysmsg 'Tactics' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+      if @property 'Animal Taming' 'Skills' >= 10
+        sysmsg 'Taming' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+      if @property 'Animal Lore' 'Skills' >= 10
+        sysmsg 'Animal Lore' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+      if @property 'Evaluating Intelligence ' 'Skills' >= 10
+        sysmsg 'Evaluating Intelligence ' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+      if @property 'Archery' 'Skills' >= 10
+        sysmsg 'Archery' '1990'
+        @moveitem 'Skills' 'LootBag'
+        pause 1000
+      endif
+    endif
+  endfor
+endfor
+ignoreobject '0'
